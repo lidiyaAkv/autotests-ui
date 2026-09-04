@@ -4,16 +4,49 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
+        h6 {
+            font-size: 17px;
+        }
         .h2-text {
-            color: red
+            color: red;
+        }
+        .h6-text {
+            color: yellow;
+        }
+        #h1-text {
+            font-style: italic;
+        }
+        div.python > a {
+            color: green;
+        }
+        ul li {
+            color: deeppink;
+        }
+        input[type="text"] {
+            background-color: aqua;
+        }
+        input[type="text"]:hover {
+            background-color: darkblue;
+        }
+        a:hover {
+            color: red;
+        }
+        li::marker {
+            color: darkviolet;
+        }
+        ul > li:nth-child(2) {
+            color: blue;
+        }
+        div.nth > p:nth-of-type(3) {
+            color: coral;
         }
     </style>
 </head>
 <body>
-<div>
+<div class="python">
     <h1 id="h1-text">H1 text</h1>
     <h2 class="h2-text">H2 text</h2>
-    <h6 class="h2-text">H6 text</h6>
+    <h6 class="h2-text h6-text">H6 text</h6>
     <p>Token-efficient browser automation for coding agents like <span style="color:green"> Claude Code </span> and GitHub Copilot. Skill-based workflows
         without large context overhead</p>
     <a href="https://playwright.dev/python/" target="_blank">Python</a>
@@ -57,6 +90,16 @@
         </tbody>
     </table>
     <label>Label Text</label>
+    <div class="nth">
+        <p>1</p>
+        <p>2</p>
+        <h6>3</h6>
+        <h5>4</h5>
+        <p>5</p>
+    </div>
+</div>
+<div class="java-script">
+    <a href="https://playwright.dev/python/" target="_blank">JavaScript</a>
 </div>
 </body>
 </html>
