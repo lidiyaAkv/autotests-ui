@@ -50,14 +50,22 @@ users = {
     '+70000000033': 'User with operations on bank account'
 }
 
+
 def format_phone_number(phone_number: str) -> str:
     return f'{phone_number}: {users[phone_number]}'
+
 
 @pytest.mark.parametrize(
     'phone_number',
     users.keys(),
     ids=format_phone_number
-    #ids=lambda phone_number: f'{phone_number}: {users[phone_number]}'
+    # ids=lambda phone_number: f'{phone_number}: {users[phone_number]}'
 )
 def test_identifiers(phone_number: str):
     print(phone_number)
+
+
+#@pytest.mark.parametrize("a, b", [(1, "A"), (2, "B")], ids=lambda a, b: f"{a}-{b}")
+#def test_bad_callable(a, b): ...
+# Исправление:
+# ids=lambda p: f"{p[0]}-{p[1]}"
