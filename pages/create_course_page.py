@@ -55,6 +55,9 @@ class CreateCoursePage(BasePage):
     def check_disabled_create_course_button(self):
         expect(self.create_course_button).to_be_disabled()
 
+    def click_create_course_button(self):
+        self.create_course_button.click()
+
     def check_visible_image_preview_empty_view(self):
         expect(self.preview_empty_view_icon).to_be_visible()
 
@@ -84,7 +87,7 @@ class CreateCoursePage(BasePage):
         self.preview_image_remove_button.click()
 
     def check_visible_preview_image(self):
-        expect(self.preview_image).is_visible()
+        expect(self.preview_image).to_be_visible()
 
     def upload_preview_image(self, file: str):
         self.preview_image_upload_input.set_input_files(file)
@@ -98,19 +101,19 @@ class CreateCoursePage(BasePage):
             min_score: str
     ):
         expect(self.create_course_title_input).to_be_visible()
-        expect(self.create_course_title_input).to_have_text(title)
+        expect(self.create_course_title_input).to_have_value(title)
 
         expect(self.create_course_estimated_time_input).to_be_visible()
-        expect(self.create_course_estimated_time_input).to_have_text(estimated_time)
+        expect(self.create_course_estimated_time_input).to_have_value(estimated_time)
 
         expect(self.create_course_description_textarea).to_be_visible()
-        expect(self.create_course_description_textarea).to_have_text(description)
+        expect(self.create_course_description_textarea).to_have_value(description)
 
         expect(self.create_course_max_score_input).to_be_visible()
-        expect(self.create_course_max_score_input).to_have_text(max_score)
+        expect(self.create_course_max_score_input).to_have_value(max_score)
 
         expect(self.create_course_min_score_input).to_be_visible()
-        expect(self.create_course_min_score_input).to_have_text(min_score)
+        expect(self.create_course_min_score_input).to_have_value(min_score)
 
     def fill_create_course_form(
             self,
@@ -121,19 +124,19 @@ class CreateCoursePage(BasePage):
             min_score: str
     ):
         self.create_course_title_input.fill(title)
-        expect(self.create_course_title_input).to_have_text(title)
+        expect(self.create_course_title_input).to_have_value(title)
 
         self.create_course_estimated_time_input.fill(estimated_time)
-        expect(self.create_course_estimated_time_input).to_have_text(estimated_time)
+        expect(self.create_course_estimated_time_input).to_have_value(estimated_time)
 
         self.create_course_description_textarea.fill(description)
-        expect(self.create_course_description_textarea).to_have_text(description)
+        expect(self.create_course_description_textarea).to_have_value(description)
 
         self.create_course_max_score_input.fill(max_score)
-        expect(self.create_course_max_score_input).to_have_text(max_score)
+        expect(self.create_course_max_score_input).to_have_value(max_score)
 
         self.create_course_min_score_input.fill(min_score)
-        expect(self.create_course_min_score_input).to_have_text(min_score)
+        expect(self.create_course_min_score_input).to_have_value(min_score)
 
     def check_visible_exercises_title(self):
         expect(self.exercise_title).to_be_visible()
@@ -177,13 +180,12 @@ class CreateCoursePage(BasePage):
         expect(exercise_subtitle).to_have_text(f'#{index + 1} Exercise')
 
         expect(exercise_title_input).to_be_visible()
-        expect(exercise_title_input).to_have_text(title)
+        expect(exercise_title_input).to_have_value(title)
 
         expect(exercise_description_input).to_be_visible()
-        expect(exercise_description_input).to_have_text(description)
+        expect(exercise_description_input).to_have_value(description)
 
     def fill_exercise_form(self, index: int, title: str, description: str):
-        exercise_subtitle = self.page.get_by_test_id(f'create-course-exercise-{index}-box-toolbar-subtitle-text')
         exercise_title_input = (
             self.page.get_by_test_id(f'create-course-exercise-form-title-{index}-input').locator('input')
         )
@@ -192,7 +194,7 @@ class CreateCoursePage(BasePage):
         )
 
         exercise_title_input.fill(title)
-        expect(exercise_title_input).to_have_text(title)
+        expect(exercise_title_input).to_have_value(title)
 
         exercise_description_input.fill(description)
-        expect(exercise_description_input).to_have_text(description)
+        expect(exercise_description_input).to_have_value(description)
