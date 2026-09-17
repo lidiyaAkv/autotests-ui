@@ -12,7 +12,7 @@ class CreateCoursePage(BasePage):
 
         self.image_upload_widget = ImageUploadWidgetComponent(page, 'create-course-preview')
         self.exercises_empty_view = EmptyViewComponent(page, 'create-course-exercises')
-        self.create_course_form = CreateCourseExerciseFormComponent(page)
+        self.create_exercise_form = CreateCourseExerciseFormComponent(page)
 
         self.create_course_title = page.get_by_test_id("create-course-toolbar-title-text")
         self.create_course_button = page.get_by_test_id("create-course-toolbar-create-course-button")
