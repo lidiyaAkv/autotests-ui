@@ -1,3 +1,4 @@
+import allure
 from playwright.sync_api import Page, expect
 
 from components.base_component import BaseComponent
@@ -25,6 +26,7 @@ class ImageUploadWidgetComponent(BaseComponent):
         self.remove_button = Button(page, f'{identifier}-image-upload-widget-remove-button', 'Remove image')
         self.upload_input = FileInput(page, f'{identifier}-image-upload-widget-input', 'Upload file')
 
+    @allure.step('Check visible Image upload widget, image is uploaded = {is_image_uploaded}')
     def check_visible(self, is_image_uploaded: bool = False):
         self.image_upload_info_icon.check_visible()
 
