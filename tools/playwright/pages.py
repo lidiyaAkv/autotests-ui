@@ -1,6 +1,7 @@
 import allure
 from playwright.sync_api import Playwright, Page
 from config import settings, Browser
+from tools.allure.environment import create_allure_environment_file
 from tools.playwright.mocks import mock_static_resources
 
 
