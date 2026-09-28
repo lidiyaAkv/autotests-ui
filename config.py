@@ -62,3 +62,4 @@ class Settings(BaseSettings):
         return f'{self.app_url}/'
 
 settings = Settings.initialize()
+print(settings.model_dump().items())
