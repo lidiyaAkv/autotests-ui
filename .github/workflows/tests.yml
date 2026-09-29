@@ -14,7 +14,7 @@ jobs:
 
     steps:
       - name: Check out repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set up Python
         uses: actions/setup-python@v7
@@ -29,17 +29,17 @@ jobs:
 
       - name: Run playwright tests with pytest and generate Allure results
         run: |
-          pytest -m regression --alluredir=./allure-results
+          pytest -m regression --alluredir=allure-results --numprocesses=2
 
       - name: Get Allure history
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         if: always()
         continue-on-error: true
         with:
           ref: gh-pages
           path: gh-pages
 
-      - name: Allure Report action from marketplace
+      - name: Generates Allure Report with history
         uses: simple-elf/allure-report-action@v1.15
         if: always()
         with:
