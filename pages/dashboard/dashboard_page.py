@@ -23,7 +23,7 @@ class DashboardPage(BasePage):
         self.students_chart_view.check_visible('Students')
 
     def check_visible_activities_chart(self):
-        self.activities_chart_view.check_visible('Activitieses')
+        self.activities_chart_view.check_visible('Activities')
 
     def check_visible_courses_chart(self):
         self.courses_chart_view.check_visible('Courses')
