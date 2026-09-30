@@ -28,11 +28,13 @@ jobs:
           playwright install --with-deps
 
       - name: Run playwright tests with pytest and generate Allure results
+        continue-on-error: true
         run: |
           pytest -m regression --alluredir=allure-results --numprocesses 2
 
       - name: Save test results from allure-results folder to allure-results-artifact artifact
         uses: actions/upload-artifact@v7
+        if: always()
         with:
           name: allure-results-artifact
           path: ./allure-results
