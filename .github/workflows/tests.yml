@@ -47,7 +47,7 @@ jobs:
     if: always()
 
     steps:
-      - name: Get test results to allure-results-artifact artifact and put them into allure-results folder
+      - name: Get test results from allure-results-artifact artifact and put them into allure-results folder
         uses: actions/download-artifact@v5
         with:
           name: allure-results-artifact
