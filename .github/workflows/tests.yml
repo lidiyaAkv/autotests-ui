@@ -39,6 +39,11 @@ jobs:
 
   publish-report:
     runs-on: ubuntu-latest
+
+    needs: run-tests
+
+    if: always()
+
     steps:
       - name: Get test results to allure-results-artifact artifact and put them into allure-results folder
         uses: actions/download-artifact@v5
