@@ -38,6 +38,7 @@ jobs:
           path: coverage-history.json
           key: coverage-history-${{ github.run_id }}
           restore-keys: |
+            coverage-history-${{ github.event.before }}
             coverage-history-
 
       - name: Generate Coverage Report
